@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+    http://www.springframework.org/schema/tx  
+    http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd
+">
+	<!-- 采用注释的方式配置bean -->
+	<context:annotation-config />
+	<!-- 定时器开关 开始 -->
+	<!-- <task:annotation-driven /> -->
+	<!-- 定时器开关 结束 -->
+	<!-- <bean id="V3Timer" class="com.cmicroentropy.soa.timer.V3Timer"></bean> 
+		<task:scheduled-tasks> 每天早上六点，中午十二点，下午八点清除一次缓存内脏数据 0 0 0,6,12,18 * * ? <task:scheduled 
+		ref="V3Timer" method="clearOverdueCache" cron="0/30 * * * * ?" /> </task:scheduled-tasks> -->
+	<!-- 配置要扫描的包 -->
+	<context:component-scan base-package="scc.cunsumer.controller"></context:component-scan>
+
+	<import resource="dubbo.xml"/>
+</beans>
